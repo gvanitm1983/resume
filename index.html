@@ -1,200 +1,427 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Jeevan Adieswaran - DevOps / SRE Resume</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jeevan Adieswaran - Resume</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #2980b9;
+            --text-color: #333333;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --border-color: #e2e8f0;
+        }
 
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #f4f6f9;
-      color: #2c3e50;
-      line-height: 1.6;
-    }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-    .container {
-      max-width: 1000px;
-      margin: auto;
-      background: white;
-      padding: 30px;
-    }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            padding: 40px 20px;
+        }
 
-    h1 {
-      margin-bottom: 5px;
-    }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
 
-    h2 {
-      border-bottom: 2px solid #eee;
-      padding-bottom: 5px;
-      margin-top: 30px;
-    }
+        /* Header Styling */
+        header {
+            text-align: center;
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 25px;
+            margin-bottom: 30px;
+        }
 
-    .header {
-      text-align: center;
-    }
+        header h1 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            letter-spacing: -0.5px;
+        }
 
-    .contact {
-      font-size: 14px;
-      color: #555;
-    }
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            font-size: 0.95rem;
+        }
 
-    ul {
-      margin-top: 5px;
-    }
+        .contact-info a, .contact-info span {
+            color: var(--secondary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
 
-    .job-title {
-      font-weight: bold;
-      margin-top: 15px;
-    }
+        .contact-info a:hover {
+            color: var(--accent-color);
+        }
 
-    .company {
-      color: #555;
-    }
+        /* Section Universal Styling */
+        section {
+            margin-bottom: 35px;
+        }
 
-    .section {
-      margin-bottom: 20px;
-    }
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-left: 4px solid var(--accent-color);
+            padding-left: 12px;
+            margin-bottom: 15px;
+        }
 
-    .skills span {
-      display: inline-block;
-      background: #eef2f7;
-      padding: 5px 10px;
-      margin: 3px;
-      border-radius: 5px;
-      font-size: 13px;
-    }
+        p.summary {
+            font-size: 1.05rem;
+            text-align: justify;
+        }
 
-    .footer {
-      text-align: center;
-      font-size: 12px;
-      margin-top: 30px;
-      color: gray;
-    }
+        /* Technical Skills Badges */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
 
-    a {
-      color: #2980b9;
-    }
-  </style>
+        .skill-category {
+            background: var(--bg-color);
+            padding: 12px 15px;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+        }
+
+        .skill-category strong {
+            color: var(--secondary-color);
+            display: block;
+            margin-bottom: 5px;
+            font-size: 0.95rem;
+        }
+
+        .skill-category span {
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        /* Experience Timeline */
+        .job-card {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px dashed var(--border-color);
+        }
+
+        .job-card:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            margin-bottom: 10px;
+        }
+
+        .job-title {
+            font-size: 1.15rem;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+
+        .job-company {
+            color: var(--accent-color);
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .job-date {
+            font-size: 0.9rem;
+            color: #777;
+            font-style: italic;
+        }
+
+        ul {
+            list-style-type: none;
+        }
+
+        ul li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+            text-align: justify;
+        }
+
+        ul li::before {
+            content: "▪";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+            font-size: 0.8rem;
+            top: 1px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            .container {
+                padding: 20px;
+            }
+            .job-header {
+                flex-direction: column;
+                gap: 2px;
+            }
+            .job-date {
+                margin-top: 5px;
+            }
+        }
+    </style>
 </head>
-
 <body>
 
 <div class="container">
+    <header>
+        <h1>Jeevan Adieswaran</h1>
+        <div class="contact-info">
+            <span><i class="fa-solid fa-location-dot"></i> Singapore</span>
+            <a href="tel:+6587549883"><i class="fa-solid fa-phone"></i> +65 8754 9883</a>
+            <a href="mailto:gvan_my@yahoo.com"><i class="fa-solid fa-envelope"></i> gvan_my@yahoo.com</a>
+            <a href="mailto:gvanitm1983@gmail.com"><i class="fa-solid fa-envelope"></i> gvanitm1983@gmail.com</a>
+            <a href="https://www.linkedin.com/jeevan-adieswaran" target="_blank"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
+        </div>
+    </header>
 
-  <!-- HEADER -->
-  <div class="header">
-    <h1>Jeevan Adieswaran</h1>
-    <div class="contact">
-      Singapore | +65 87549883 |
-      gvan_my@yahoo.com | gvanitm1983@gmail.com |
-      <a href="https://www.linkedin.com/in/jeevan-adieswaran" target="_blank">LinkedIn</a>
-    </div>
-  </div>
+    <section>
+        <h2>Professional Summary</h2>
+        <p class="summary">
+            Results-driven DevOps and Infrastructure Lead with extensive experience delivering large-scale banking technology projects across cloud and on-prem environments. Proven track record in leading end-to-end project delivery from planning through go-live and stabilization, coordinating cross-functional regional teams, and ensuring compliance with banking regulatory standards. Expertise in Kubernetes (EKS/OpenShift), CI/CD automation, infrastructure transformation, and production reliability in high-availability financial systems.
+        </p>
+    </section>
 
-  <!-- SUMMARY -->
-  <div class="section">
-    <h2>Professional Summary</h2>
-    <p>
-      Results-driven DevOps and Infrastructure Lead with extensive experience delivering large-scale banking technology projects across cloud and on-prem environments.
-      Proven track record in Kubernetes (EKS/OpenShift), CI/CD automation, infrastructure transformation, and production reliability in high-availability financial systems.
-    </p>
-  </div>
+    <section>
+        <h2>Technical Core Competencies</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <strong>Cloud Platforms</strong>
+                <span>AWS (EKS, EC2, RDS, CloudWatch), GCP</span>
+            </div>
+            <div class="skill-category">
+                <strong>Containerization</strong>
+                <span>Docker, Kubernetes, OpenShift, Istio Service Mesh</span>
+            </div>
+            <div class="skill-category">
+                <strong>CI/CD & GitOps</strong>
+                <span>Jenkins, GitLab CI/CD, ArgoCD, Helm, IBM UrbanCode</span>
+            </div>
+            <div class="skill-category">
+                <strong>Observability & Monitoring</strong>
+                <span>Grafana, ELK Stack, New Relic, AWS CloudWatch</span>
+            </div>
+            <div class="skill-category">
+                <strong>Programming & Scripting</strong>
+                <span>Java (basic), Bash, Python, Shell Scripting</span>
+            </div>
+            <div class="skill-category">
+                <strong>Security & Architecture</strong>
+                <span>TLS/SSL Encryption, Vulnerability Scanning & Management</span>
+            </div>
+        </div>
+    </section>
 
-  <!-- SKILLS -->
-  <div class="section">
-    <h2>Technical Skills</h2>
-    <div class="skills">
-      <span>AWS (EKS, EC2, RDS, CloudWatch)</span>
-      <span>GCP</span>
-      <span>Kubernetes</span>
-      <span>Docker</span>
-      <span>Jenkins</span>
-      <span>GitLab CI/CD</span>
-      <span>ArgoCD</span>
-      <span>Helm</span>
-      <span>Grafana</span>
-      <span>ELK Stack</span>
-      <span>Linux</span>
-      <span>Python</span>
-      <span>Bash</span>
-      <span>Java (Basic)</span>
-      <span>IBM MQ</span>
-      <span>Security & TLS</span>
-    </div>
-  </div>
+    <section>
+        <h2>Professional Experience</h2>
 
-  <!-- EXPERIENCE -->
-  <div class="section">
-    <h2>Professional Experience</h2>
+        <!-- Job 1 -->
+        <div class="job-card">
+            <div class="job-header">
+                <div>
+                    <div class="job-title">Middleware Lead <span class="job-company">(Client: Singapore Land Authority)</span></div>
+                    <div class="job-company">Tata Consultancy Services – Singapore</div>
+                </div>
+                <div class="job-date">Jul 2025 – Present</div>
+            </div>
+            <ul>
+                <li>Owned CI/CD governance by implementing structured branch strategy (SIT/UAT/Production), enforcing code check-in standards across project teams, and ensuring middleware teams utilized controlled artifact promotion from UAT for deployments, eliminating manual build and deployment risks.</li>
+                <li>Supported Kubernetes (AWS EKS) environments with Istio service mesh for scalable, resilient deployments.</li>
+                <li>Automated operational workflows and monitoring using Python and shell scripting, improving system health visibility.</li>
+                <li>Managed Linux-based environments, performing system diagnostics, log analysis, and performance troubleshooting.</li>
+                <li>Implemented observability practices using AWS CloudWatch, enabling proactive alerting and SLA adherence.</li>
+                <li>Collaborated with infrastructure teams on backup/recovery validation and reliability testing across environments.</li>
+                <li>Supported multi-region deployment environments ensuring production parity for SIT/UAT testing.</li>
+                <li>Supported all production deployments with no major issues reported by the client during application takeover from IBM, ensuring a smooth transition and strong stakeholder relationship for middleware operations.</li>
+                <li>Managed IBM MQ messaging systems enabling reliable communication across distributed services with dependent systems.</li>
+                <li>Owned the end-to-end delivery of SIT environment, collaborating with PCCW infrastructure teams and internal development teams to resolve setup issues, manage dependencies, and provide stakeholder updates, ensuring on-time readiness for application testing and release cycles.</li>
+                <li>Led the implementation of TLS/SSL encryption for application-to-database connectivity across AWS EC2 (Linux and Windows) environments, coordinating with PCCW DBA and infrastructure teams, performing environment snapshots, and validating changes in SIT before planning rollout to UAT and production.</li>
+                <li>Owned end-to-end migration of IBM DataCap from government-issued laptops to secure COMET laptops, collaborating with IBM, NCS IT Support, GovTech, and business users to manage dependencies, conduct user acceptance testing, and ensure compliant and seamless delivery.</li>
+                <li>Managed middleware team in delivering CI/CD pipelines for .NET AMS project by assigning tasks, coordinating closely with .NET development teams, and ensuring clear understanding of requirements to achieve timely and successful delivery.</li>
+                <li>Owned the development of Business Continuity Plan (BCP) for Singapore Land Authority, coordinating with application owners, SLA stakeholders, testing teams, and PCCW infrastructure teams to ensure compliance, disaster recovery readiness, and minimal service disruption.</li>
+            </ul>
+        </div>
 
-    <div class="job-title">Middleware Lead</div>
-    <div class="company">Tata Consultancy Services – Singapore (Jul 2025 – Present)</div>
-    <ul>
-      <li>Owned CI/CD governance and structured branch strategy (SIT/UAT/Production)</li>
-      <li>Supported AWS EKS Kubernetes environments with Istio service mesh</li>
-      <li>Implemented observability using AWS CloudWatch</li>
-      <li>Managed IBM MQ messaging systems</li>
-      <li>Led SIT environment delivery and cross-team coordination</li>
-    </ul>
+        <!-- Job 2 -->
+        <div class="job-card">
+            <div class="job-header">
+                <div>
+                    <div class="job-title">Release Manager <span class="job-company">(Client: Deutsche Bank)</span></div>
+                    <div class="job-company">Tata Consultancy Services – Singapore</div>
+                </div>
+                <div class="job-date">Jul 2024 – Jun 2025</div>
+            </div>
+            <ul>
+                <li>Supported high-throughput, low-latency banking systems across distributed environments.</li>
+                <li>Built and managed CI/CD pipelines for containerized applications on OpenShift and Kubernetes.</li>
+                <li>Troubleshot production and pre-production issues across Linux systems, identifying performance and configuration bottlenecks.</li>
+                <li>Managed IBM MQ messaging systems enabling reliable communication across distributed services.</li>
+                <li>Performed incident triage, root cause analysis (RCA), and remediation for critical production issues.</li>
+                <li>Monitored system performance and reliability using New Relic, ensuring SLA compliance.</li>
+                <li>Coordinated multi-region release deployments across global teams.</li>
+            </ul>
+        </div>
 
-    <div class="job-title">Release Manager</div>
-    <div class="company">Tata Consultancy Services – Singapore (Jul 2024 – Jun 2025)</div>
-    <ul>
-      <li>Supported banking systems across distributed environments</li>
-      <li>Built CI/CD pipelines on OpenShift and Kubernetes</li>
-      <li>Performed RCA and production incident resolution</li>
-      <li>Used New Relic for monitoring and SLA compliance</li>
-    </ul>
+        <!-- Job 3 -->
+        <div class="job-card">
+            <div class="job-header">
+                <div>
+                    <div class="job-title">Technical Release & Environment Manager <span class="job-company">(Client: UOB)</span></div>
+                    <div class="job-company">Deegit Asia Pte Ltd – Singapore</div>
+                </div>
+                <div class="job-date">Aug 2023 – Mar 2024</div>
+            </div>
+            <ul>
+                <li>Supported high-volume financial Wealth Management application across SIT/UAT/Production environments.</li>
+                <li>Implemented monitoring and alerting solutions improving early detection of system anomalies.</li>
+                <li>Diagnosed infrastructure and application issues impacting performance and availability.</li>
+                <li>Participated in system upgrades and infrastructure optimization initiatives.</li>
+                <li>Contributed to incident management processes including triage and resolution coordination.</li>
+            </ul>
+        </div>
 
-    <div class="job-title">Technical Release & Environment Manager</div>
-    <div class="company">Deegit Asia Pte Ltd – Singapore (Aug 2023 – Mar 2024)</div>
-    <ul>
-      <li>Supported Wealth Management applications across environments</li>
-      <li>Improved monitoring and incident detection</li>
-      <li>Participated in system upgrades and optimization</li>
-    </ul>
+        <!-- Job 4 -->
+        <div class="job-card">
+            <div class="job-header">
+                <div>
+                    <div class="job-title">Release & Cloud Operations Manager</div>
+                    <div class="job-company">Liberty Wireless Pte Ltd – Singapore</div>
+                </div>
+                <div class="job-date">Jul 2021 – Aug 2023</div>
+            </div>
+            <ul>
+                <li>Led cloud operations and DevOps engineering across AWS and GCP environments supporting multi-country platforms.</li>
+                <li>Designed and implemented CI/CD pipelines, reducing manual deployment effort and improving release reliability.</li>
+                <li>Led migration from VM-based systems to Kubernetes (AWS EKS), improving scalability and resilience.</li>
+                <li>Automated operational tasks using scripting, improving efficiency and reducing human error.</li>
+                <li>Managed production incidents, performed RCA, and implemented preventive measures.</li>
+                <li>Collaborated with cross-functional teams to improve system reliability and operational efficiency.</li>
+            </ul>
+        </div>
 
-    <div class="job-title">Release & Cloud Operations Manager</div>
-    <div class="company">Liberty Wireless Pte Ltd – Singapore (Jul 2021 – Aug 2023)</div>
-    <ul>
-      <li>Led AWS & GCP cloud operations</li>
-      <li>Implemented CI/CD pipelines and Kubernetes migration</li>
-      <li>Automated operational workflows and incident response</li>
-    </ul>
+        <!-- Job 5 -->
+        <div class="job-card">
+            <div class="job-header">
+                <div>
+                    <div class="job-title">Release Manager</div>
+                    <div class="job-company">PCCW Solutions Singapore</div>
+                </div>
+                <div class="job-date">May 2020 – Jul 2021</div>
+            </div>
+            <ul>
+                <li>Implemented release pipelines and deployment automation across environments.</li>
+                <li>Supported performance testing and system tuning initiatives.</li>
+                <li>Managed production cutovers and ensured system stability during deployments.</li>
+            </ul>
+        </div>
 
-    <div class="job-title">Earlier Roles</div>
-    <ul>
-      <li>PCCW Solutions – Release Manager</li>
-      <li>CPF Board – DevOps Engineer</li>
-      <li>UOB – Senior Software Consultant</li>
-      <li>Accenture – DevOps / Environment Management Consultant</li>
-    </ul>
-  </div>
+        <!-- Job 6 -->
+        <div class="job-card">
+            <div class="job-header">
+                <div>
+                    <div class="job-title">DevOps Engineer</div>
+                    <div class="job-company">Central Provident Fund (CPF) Board – Singapore</div>
+                </div>
+                <div class="job-date">Aug 2018 – May 2020</div>
+            </div>
+            <ul>
+                <li>Implemented deployment automation using IBM UrbanCode.</li>
+                <li>Supported production systems, ensuring stability and compliance with release standards.</li>
+                <li>Performed vulnerability management and patching across environments.</li>
+            </ul>
+        </div>
 
-  <!-- STRENGTHS -->
-  <div class="section">
-    <h2>Key Strengths</h2>
-    <ul>
-      <li>Distributed system operations and production stability</li>
-      <li>Linux troubleshooting and performance tuning</li>
-      <li>CI/CD automation and DevOps engineering</li>
-      <li>Incident management and RCA</li>
-      <li>Banking-grade high availability systems</li>
-    </ul>
-  </div>
+        <!-- Job 7 -->
+        <div class="job-card">
+            <div class="job-header">
+                <div>
+                    <div class="job-title">Senior Software Consultant</div>
+                    <div class="job-company">UOB Singapore</div>
+                </div>
+                <div class="job-date">Dec 2017 – Jul 2018</div>
+            </div>
+            <ul>
+                <li>Supported enterprise banking systems with focus on deployment and operational stability.</li>
+                <li>Provided L3 support and resolved production issues across distributed systems.</li>
+            </ul>
+        </div>
 
-  <!-- EDUCATION -->
-  <div class="section">
-    <h2>Education</h2>
-    <p>Bachelor’s Degree in Computer Science or equivalent</p>
-  </div>
+        <!-- Job 8 -->
+        <div class="job-card">
+            <div class="job-header">
+                <div>
+                    <div class="job-title">Consultant – DevOps / Environment Management</div>
+                    <div class="job-company">Accenture Pte Ltd – Singapore</div>
+                </div>
+                <div class="job-date">Apr 2009 – Nov 2017</div>
+            </div>
+            <ul>
+                <li>Engineered CI/CD pipelines using Jenkins, Maven, and scripting for enterprise applications.</li>
+                <li>Managed large-scale production environments with 24/7 monitoring and incident response.</li>
+                <li>Performed Linux system administration, log analysis, and troubleshooting.</li>
+                <li>Supported disaster recovery (DR) drills and high availability systems.</li>
+                <li>Automated deployment and operational processes using shell and scripting tools.</li>
+            </ul>
+        </div>
+    </section>
 
-  <div class="footer">
-    © 2026 Jeevan Adieswaran | Hosted on GitHub Pages
-  </div>
+    <section>
+        <h2>Key Strengths</h2>
+        <ul>
+            <li>Strong experience supporting distributed, multi-region production systems & New Environment Setup.</li>
+            <li>Deep understanding of Linux systems, performance tuning, and infrastructure troubleshooting.</li>
+            <li>Hands-on expertise in enterprise CI/CD automation pipelines and DevOps governance.</li>
+            <li>Proven capacity in managing high-severity critical incidents, RCA, and reliability engineering.</li>
+            <li>Solid background navigating financial environments with strict regulatory compliance and low-latency metrics.</li>
+        </ul>
+    </section>
 
+    <section>
+        <h2>Education</h2>
+        <div class="job-header">
+            <div>
+                <div class="job-title">Bachelor’s Degree in Computer Science or equivalent</div>
+            </div>
+        </div>
+    </section>
 </div>
 
 </body>
